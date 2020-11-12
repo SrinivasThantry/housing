@@ -4,15 +4,15 @@ module.exports = ({ env }) => ({
     default: {
       connector: 'mongoose',
       settings: {
-        host: env('DATABASE_HOST', 'cluster0.tqekj.mongodb.net'),
+        host: process.env['DATABASE_HOST'],
         srv: env.bool('DATABASE_SRV', true),
         port: env.int('DATABASE_PORT', 27017),
-        database: env('DATABASE_NAME', 'housing'),
-        username: env('DATABASE_USERNAME', 'admin'),
-        password: env('DATABASE_PASSWORD', 'admin'),
+        database: env('DATABASE_NAME', 'strapi'),
+        username: process.env['DATABASE_USERNAME'],
+        password: process.env['DATABASE_PASSWORD'],
       },
       options: {
-        authenticationDatabase: env('AUTHENTICATION_DATABASE', null),
+        authenticationDatabase: env('AUTHENTICATION_DATABASE', 'admin'),
         ssl: env.bool('DATABASE_SSL', true),
       },
     },
